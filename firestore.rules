@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Season config, episodes and player accounts: open to anyone with the link.
+    // The admin PIN is checked in the browser; this pool is for friends.
+    match /season/{doc} { allow read, write: if true; }
+    match /episodes/{doc} { allow read, write: if true; }
+    match /users/{doc} { allow read, write: if true; }
+
+    // Picks can only be written before that episode's deadline, enforced server-side,
+    // so nobody can change a pick after the episode airs (even via the console).
+    match /picks/{pickId} {
+      allow read: if true;
+      allow create, update: if request.resource.data.epId is string
+        && exists(/databases/$(database)/documents/episodes/$(request.resource.data.epId))
+        && request.time < get(/databases/$(database)/documents/episodes/$(request.resource.data.epId)).data.deadline;
+      allow delete: if false;
+    }
+  }
+}

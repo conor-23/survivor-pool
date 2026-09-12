@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survivor 51 Pool</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="torch">🔥</span>
+      <h1 id="season-name">Survivor Pool</h1>
+    </div>
+    <div class="who" id="who"></div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="picks" class="active">Picks</button>
+    <button data-tab="board">Leaderboard</button>
+    <button data-tab="episodes">Episodes</button>
+    <button data-tab="admin">Admin</button>
+  </nav>
+
+  <div id="banner" class="banner" hidden></div>
+  <main id="view"><p class="muted">Loading…</p></main>
+
+  <footer class="foot">
+    <details>
+      <summary>How scoring works</summary>
+      <ul>
+        <li><b>Before the merge:</b> pick one castaway from each tribe you think goes home. Each correct pick is worth <b>100</b>.</li>
+        <li><b>After the merge:</b> rank your three most likely boots. <b>150</b> if your #1 goes, <b>75</b> for #2, <b>40</b> for #3.</li>
+        <li><b>Finale:</b> rank three castaways to win the season, same 150 / 75 / 40.</li>
+        <li><b>Episode title bonus:</b> every week, guess who says the line that becomes the episode title for <b>+5</b>.</li>
+        <li>Picks lock automatically at the deadline shown. No pick, no points.</li>
+      </ul>
+    </details>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
