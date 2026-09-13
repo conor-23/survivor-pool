@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #0f1a14; color: #eef3ee; font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    a { color: #ffb347; } a:hover { color: #f0882a; }
+  </style>
+</helmet>
+<div style="width: 390px; min-height: 844px; background: #0f1a14; display: flex; flex-direction: column;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 8px; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 8px;"><span style="font-size: 24px;">🔥</span><div style="font-size: 22px; font-weight: 700; line-height: 1.2;">Survivor 51</div></div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #9db3a4;"><span>Playing as <b style="color: #eef3ee;">Conor</b></span><div style="background: #213629; color: #eef3ee; border: 1px solid #2f4a3a; padding: 6px 10px; border-radius: 8px; font-size: 13px; font-weight: 600;">Switch</div></div>
+  </div>
+  <div style="display: flex; gap: 4px; padding: 0 16px; border-bottom: 1px solid #2f4a3a;">
+    <div style="padding: 9px 9px; font-size: 14px; color: #eef3ee; border-bottom: 3px solid #f0882a; margin-bottom: -1px;">Picks</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Leaderboard</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Episodes</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Admin</div>
+  </div>
+  <div style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
+    <div style="background: #182a20; border: 1px solid #2f4a3a; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-size: 20px; font-weight: 700; line-height: 1.2;">Episode 9: TBA</div>
+        <div style="align-self: flex-start; padding: 2px 8px; border-radius: 999px; font-size: 12.5px; background: #213629; border: 1px solid #2f4a3a; color: #9db3a4;">Post-merge (rank 3 boots)</div>
+      </div>
+      <div style="font-size: 17px;">Picks close <b style="color: #ffb347;">Wed, Nov 18, 8:00 PM</b> (in 2d 3h)</div>
+    </div>
+    <div style="background: #182a20; border: 1px solid #2f4a3a; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 17px; font-weight: 700; color: #ffb347;">Who goes home? Rank your top 3.</div>
+      <div style="font-size: 13.5px; color: #9db3a4;">Tap in order: first tap is #1 (150 pts), then #2 (75), then #3 (40). Tap a pick again to remove it.</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px;">
+<div onClick="{{ c.alexis.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.alexis.nameColor }}; font-weight: {{ c.alexis.weight }};">Alexis Levine</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.alexis.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="alexis.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.alexis.badgeOpacity }};">{{ c.alexis.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.carter.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.carter.nameColor }}; font-weight: {{ c.carter.weight }};">Carter Krull</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.carter.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="carter.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.carter.badgeOpacity }};">{{ c.carter.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.cristian.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.cristian.nameColor }}; font-weight: {{ c.cristian.weight }};">Cristian Chavez</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.cristian.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="cristian.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.cristian.badgeOpacity }};">{{ c.cristian.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.kristin.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.kristin.nameColor }}; font-weight: {{ c.kristin.weight }};">Kristin Flickinger</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.kristin.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="kristin.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.kristin.badgeOpacity }};">{{ c.kristin.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.ori.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.ori.nameColor }}; font-weight: {{ c.ori.weight }};">Ori Jean-Charles</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.ori.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="ori.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.ori.badgeOpacity }};">{{ c.ori.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.sharonda.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.sharonda.nameColor }}; font-weight: {{ c.sharonda.weight }};">Sharonda Cox</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.sharonda.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="sharonda.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.sharonda.badgeOpacity }};">{{ c.sharonda.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.aaliyah.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.aaliyah.nameColor }}; font-weight: {{ c.aaliyah.weight }};">Aaliyah Puglia</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.aaliyah.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="aaliyah.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.aaliyah.badgeOpacity }};">{{ c.aaliyah.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.jelly.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.jelly.nameColor }}; font-weight: {{ c.jelly.weight }};">Angelica "Jelly" Loblack</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.jelly.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="jelly.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.jelly.badgeOpacity }};">{{ c.jelly.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.brady.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.brady.nameColor }}; font-weight: {{ c.brady.weight }};">Brady Booker</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.brady.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="brady.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.brady.badgeOpacity }};">{{ c.brady.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.devin.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.devin.nameColor }}; font-weight: {{ c.devin.weight }};">Devin Way</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.devin.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="devin.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.devin.badgeOpacity }};">{{ c.devin.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.jenna.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.jenna.nameColor }}; font-weight: {{ c.jenna.weight }};">Jenna Doore</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.jenna.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="jenna.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.jenna.badgeOpacity }};">{{ c.jenna.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.maggie.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.maggie.nameColor }}; font-weight: {{ c.maggie.weight }};">Maggie Nestor</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.maggie.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="maggie.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.maggie.badgeOpacity }};">{{ c.maggie.badge }}</div>
+  </div>
+</div>
+<div onClick="{{ c.mike.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12.5px; line-height: 1.2; text-align: center; height: 30px; display: flex; align-items: flex-end; justify-content: center; color: {{ c.mike.nameColor }}; font-weight: {{ c.mike.weight }};">Mike Pinsky</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; border: 3px solid {{ c.mike.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="mike.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ c.mike.badgeOpacity }};">{{ c.mike.badge }}</div>
+  </div>
+</div>
+</div>
+    </div>
+    <div style="background: #182a20; border: 1px solid #2f4a3a; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 17px; font-weight: 700; color: #ffb347;">Title bonus (+5): who says the line that becomes the episode title?</div>
+      <div style="color: #9db3a4; font-size: 15px;">Title not announced yet. Optional.</div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 8px;">
+<div onClick="{{ t.alexis.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.alexis.nameColor }}; font-weight: {{ t.alexis.weight }};">Alexis</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.alexis.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="alexis.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.alexis.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.carter.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.carter.nameColor }}; font-weight: {{ t.carter.weight }};">Carter</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.carter.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="carter.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.carter.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.cristian.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.cristian.nameColor }}; font-weight: {{ t.cristian.weight }};">Cristian</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.cristian.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="cristian.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.cristian.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.kristin.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.kristin.nameColor }}; font-weight: {{ t.kristin.weight }};">Kristin</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.kristin.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="kristin.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.kristin.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.ori.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.ori.nameColor }}; font-weight: {{ t.ori.weight }};">Ori</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.ori.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="ori.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.ori.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.sharonda.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.sharonda.nameColor }}; font-weight: {{ t.sharonda.weight }};">Sharonda</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.sharonda.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="sharonda.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.sharonda.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.aaliyah.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.aaliyah.nameColor }}; font-weight: {{ t.aaliyah.weight }};">Aaliyah</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.aaliyah.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="aaliyah.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.aaliyah.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.jelly.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.jelly.nameColor }}; font-weight: {{ t.jelly.weight }};">Jelly</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.jelly.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="jelly.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.jelly.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.brady.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.brady.nameColor }}; font-weight: {{ t.brady.weight }};">Brady</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.brady.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="brady.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.brady.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.devin.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.devin.nameColor }}; font-weight: {{ t.devin.weight }};">Devin</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.devin.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="devin.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.devin.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.jenna.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.jenna.nameColor }}; font-weight: {{ t.jenna.weight }};">Jenna</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.jenna.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="jenna.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.jenna.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.maggie.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.maggie.nameColor }}; font-weight: {{ t.maggie.weight }};">Maggie</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.maggie.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="maggie.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.maggie.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+<div onClick="{{ t.mike.pick }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+  <div style="font-size: 12px; line-height: 1.2; text-align: center; color: {{ t.mike.nameColor }}; font-weight: {{ t.mike.weight }};">Mike</div>
+  <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; border: 3px solid {{ t.mike.ring }}; box-sizing: border-box; background: #213629;">
+    <img src="mike.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;" />
+    <div style="position: absolute; right: 4px; bottom: 4px; width: 22px; height: 22px; border-radius: 50%; background: #f0882a; color: #1a1005; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; opacity: {{ t.mike.badgeOpacity }};"><svg viewBox="0 0 20 20" width="14" height="14" style="display: block;"><path d="M4 10.5l4 4 8-8" style="stroke: #1a1005; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round;"></path></svg></div>
+  </div>
+</div>
+</div>
+    </div>
+    <div style="background: #182a20; border: 1px solid #2f4a3a; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 15px; color: #9db3a4;">{{ summary }}</div>
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+        <button onClick="{{ submit }}" style="font: inherit; background: #f0882a; color: #1a1005; border: none; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-height: 44px; cursor: pointer;">{{ buttonLabel }}</button>
+      </div>
+      <div style="min-height: 20px; color: {{ statusColor }}; font-size: 15px;">{{ status }}</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":1750}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { ranks: [], title: "", saved: false, status: "", statusColor: "#9db3a4" }; }
+  cellVals(selected, id, badge) {
+    const on = selected;
+    return { ring: on ? "#f0882a" : "#2f4a3a", nameColor: on ? "#ffb347" : "#eef3ee", weight: on ? 700 : 400, badgeOpacity: on ? 1 : 0, badge: badge || "" };
+  }
+  renderVals() {
+    const ALIVE = ["alexis", "carter", "cristian", "kristin", "ori", "sharonda", "aaliyah", "jelly", "brady", "devin", "jenna", "maggie", "mike"];
+    const NAMES = {"alexis": "Alexis Levine", "carter": "Carter Krull", "cristian": "Cristian Chavez", "kristin": "Kristin Flickinger", "ori": "Ori Jean-Charles", "sharonda": "Sharonda Cox", "aaliyah": "Aaliyah Puglia", "jelly": "Angelica \"Jelly\" Loblack", "brady": "Brady Booker", "devin": "Devin Way", "jenna": "Jenna Doore", "maggie": "Maggie Nestor", "mike": "Mike Pinsky"};
+    const s = this.state, c = {}, t = {};
+    for (const id of ALIVE) {
+      const pos = s.ranks.indexOf(id);
+      c[id] = Object.assign(this.cellVals(pos >= 0, id, pos >= 0 ? String(pos + 1) : ""), { pick: () => {
+        let ranks = s.ranks.slice();
+        if (pos >= 0) ranks.splice(pos, 1); else if (ranks.length < 3) ranks.push(id); else { this.setState({ status: "You already have three. Tap one to remove it first.", statusColor: "#e25c5c" }); return; }
+        this.setState({ ranks, status: "" });
+      } });
+      t[id] = Object.assign(this.cellVals(s.title === id, id), { pick: () => this.setState({ title: s.title === id ? "" : id, status: "" }) });
+    }
+    const summary = ["1st", "2nd", "3rd"].map((l, i) => l + ": " + (s.ranks[i] ? NAMES[s.ranks[i]] : "—")).join(" · ") + " · Title line: " + (s.title ? NAMES[s.title] : "skipped");
+    return {
+      c, t, summary, status: s.status, statusColor: s.statusColor,
+      buttonLabel: s.saved ? "Update picks" : "Submit picks",
+      submit: () => {
+        if (s.ranks.length !== 3) { this.setState({ status: "Pick three castaways.", statusColor: "#e25c5c" }); return; }
+        this.setState({ saved: true, status: "Saved. Good luck!", statusColor: "#4fd17a" });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

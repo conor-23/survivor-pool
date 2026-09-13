@@ -211,22 +211,29 @@ function renderLogin() {
     <form id="login-form"><div class="row">
       <div><label>Player</label><select name="user"><option value="">New player…</option>${users.map(u => `<option value="${u.id}">${esc(u.name)}</option>`).join("")}</select></div>
       <div id="newname"><label>Your name</label><input type="text" name="name" placeholder="e.g. Conor" maxlength="30"></div>
+      <div id="emailbox"><label>Email (for pick reminders)</label><input type="email" name="email" placeholder="you@example.com" autocomplete="email"></div>
       <div><label>PIN (4+ digits)</label><input type="password" name="pin" inputmode="numeric" autocomplete="off" placeholder="••••"></div>
       <div><button class="btn" type="submit">Continue</button></div>
-    </div><p class="small muted">First time? Leave “New player” selected, enter your name and choose a PIN. You'll use the PIN to get back to your picks. Forgot it? Ask the commissioner to reset it.</p>
+    </div><p class="small muted">First time? Leave “New player” selected, enter your name and email, and choose a PIN. You'll use the PIN to get back to your picks. Forgot it? Ask the commissioner to reset it. Your email is only used for the reminder before each episode and the Sunday leaderboard.</p>
     <div class="status-msg" id="login-status"></div></form></div>`;
-  const sel = view.querySelector("[name=user]"), nn = $("#newname");
-  const sync = () => nn.classList.toggle("hidden", !!sel.value); sel.addEventListener("change", sync); sync();
+  const sel = view.querySelector("[name=user]"), nn = $("#newname"), eb = $("#emailbox");
+  const sync = () => { const u = users.find(u => u.id === sel.value); nn.classList.toggle("hidden", !!sel.value); eb.classList.toggle("hidden", !!(u && u.email)); };
+  sel.addEventListener("change", sync); sync();
   $("#login-form").addEventListener("submit", async e => {
     e.preventDefault(); const f = new FormData(e.target); const st = $("#login-status"); st.className = "status-msg err";
     const pin = String(f.get("pin") || "").trim(); if (pin.length < 4) return st.textContent = "PIN must be at least 4 characters.";
     let id = f.get("user"), name;
+    const email = String(f.get("email") || "").trim().toLowerCase();
+    const emailOk = /^\S+@\S+\.\S+$/.test(email);
     if (id) { const u = users.find(u => u.id === id); name = u.name; if (u.pinHash && u.pinHash !== await sha256(`${id}:${pin}`)) return st.textContent = "Wrong PIN.";
-      if (!u.pinHash) await store.set("users", id, { pinHash: await sha256(`${id}:${pin}`) }, true); }
+      const upd = {}; if (!u.pinHash) upd.pinHash = await sha256(`${id}:${pin}`);
+      if (!u.email) { if (!emailOk) return st.textContent = "Enter a valid email so you get the reminders."; upd.email = email; }
+      if (Object.keys(upd).length) await store.set("users", id, upd, true); }
     else { name = String(f.get("name") || "").trim(); if (!name) return st.textContent = "Enter your name."; id = slug(name);
       if (!id) return st.textContent = "Pick a name with some letters in it.";
       if (users.some(u => u.id === id)) return st.textContent = "That name is taken. Select it from the list instead.";
-      await store.set("users", id, { name, pinHash: await sha256(`${id}:${pin}`), createdAt: new Date() }); }
+      if (!emailOk) return st.textContent = "Enter a valid email so you get the reminders.";
+      await store.set("users", id, { name, email, pinHash: await sha256(`${id}:${pin}`), createdAt: new Date() }); }
     S.me = { id, name }; localStorage.setItem("sp-me", JSON.stringify(S.me)); render();
   });
 }
@@ -328,7 +335,7 @@ function renderAdmin() {
     <div class="actions"><button class="btn" id="save-tribes">Save tribe names &amp; colors</button></div>
   </div>
   <div class="card"><h2>Players</h2>
-    ${S.users.length ? `<div class="table-wrap"><table><tbody>${S.users.map(u => `<tr><td>${esc(u.name)}</td><td><button class="btn secondary sm" data-reset-pin="${u.id}">Reset PIN</button> <button class="btn danger sm" data-remove-user="${u.id}">Remove</button></td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Nobody has joined yet.</p>`}
+    ${S.users.length ? `<div class="table-wrap"><table><tbody>${S.users.map(u => `<tr><td>${esc(u.name)}<div class="small muted">${esc(u.email || "no email")}</div></td><td><button class="btn secondary sm" data-reset-pin="${u.id}">Reset PIN</button> <button class="btn danger sm" data-remove-user="${u.id}">Remove</button></td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Nobody has joined yet.</p>`}
   </div>
   <div class="card"><h2>Settings</h2>
     <form id="settings" class="row"><div><label>Pool name</label><input type="text" name="season-name" value="${esc(S.season.name)}"></div>

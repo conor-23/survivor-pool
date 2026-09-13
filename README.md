@@ -33,7 +33,7 @@ The `apiKey` is not a secret; it only identifies the project. Access is governed
 Open the site, go to the **Admin** tab, choose an admin PIN and click **Initialize**.
 That loads the Survivor 51 cast, the two starting tribes and episode 1 (deadline: premiere night, 8pm ET).
 
-Share the site link with your friends. Each of them picks **New player**, types their name and chooses a PIN.
+Share the site link with your friends. Each of them picks **New player**, types their name and email, and chooses a PIN.
 
 ## Weekly routine (commissioner)
 1. **Before the episode:** in Admin, make sure the upcoming episode exists with the right title and format. **Add episode** defaults to one week after the previous deadline.
@@ -43,6 +43,18 @@ Share the site link with your friends. Each of them picks **New player**, types 
 5. **Finale:** create it with the **Finale** format and set the winner in its results.
 
 Forgot a PIN? Admin → Players → **Reset PIN**. The player sets a new one next time they log in.
+
+## Email reminders (optional, about 5 minutes)
+Two emails go out automatically from your own Gmail, using Google Apps Script (free, no card):
+- **Pick reminder** to every player 3 hours before each episode's deadline, saying whether their picks are in.
+- **Standings** every Sunday at 8pm ET after an episode has aired, with that week's result and the leaderboard.
+
+1. Go to <https://script.google.com>, **New project**, and name it (e.g. `Survivor pool emails`).
+2. Replace the contents of `Code.gs` with [`email/Code.gs`](email/Code.gs). At the top, fill in `projectId` and `apiKey` (both from `firebase-config.js`) and check `siteUrl`.
+3. Pick `sendTestEmails` in the function dropdown and press **Run**. Approve the permissions prompt (it asks for Gmail send and URL fetch). Both emails land in your own inbox so you can see them.
+4. Open **Triggers** (clock icon on the left) → **Add Trigger**: function `tick`, event source **Time-driven**, type **Hour timer**, **Every hour**. Save.
+
+That's it. Change `reminderHoursBefore`, `leaderboardDay`, `leaderboardHour` or `timezone` at the top of the script if you want different timing. Gmail allows 100 recipients a day from Apps Script, plenty for a friends pool. Players who joined without an email are asked for one the next time they log in.
 
 ## Running locally
 Any static server works, for example:
