@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #0f1a14; color: #eef3ee; font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    a { color: #ffb347; } a:hover { color: #f0882a; }
+    select, input { font: inherit; width: 100%; padding: 9px 10px; border-radius: 8px; border: 1px solid #2f4a3a; background: #213629; color: #eef3ee; min-height: 44px; box-sizing: border-box; }
+    table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    th, td { text-align: left; padding: 8px 7px; border-bottom: 1px solid #2f4a3a; vertical-align: top; }
+    th { color: #9db3a4; font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; }
+  </style>
+</helmet>
+<div style="width: 390px; min-height: 844px; background: #0f1a14; display: flex; flex-direction: column;">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 8px; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 8px;"><span style="font-size: 24px;">🔥</span><div style="font-size: 22px; font-weight: 700; line-height: 1.2;">Survivor 51</div></div>
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #9db3a4;"><span>Playing as <b style="color: #eef3ee;">Conor</b></span><div style="background: #213629; color: #eef3ee; border: 1px solid #2f4a3a; padding: 6px 10px; border-radius: 8px; font-size: 13px; font-weight: 600;">Switch</div></div>
+  </div>
+  <div style="display: flex; gap: 4px; padding: 0 16px; border-bottom: 1px solid #2f4a3a;">
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Picks</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #eef3ee; border-bottom: 3px solid #f0882a; margin-bottom: -1px;">Leaderboard</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Episodes</div>
+    <div style="padding: 9px 9px; font-size: 14px; color: #9db3a4;">Admin</div>
+  </div>
+  <div style="padding: 16px;">
+    <div style="background: #182a20; border: 1px solid #2f4a3a; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-size: 20px; font-weight: 700;">Leaderboard</div>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead><tr><th style="text-align: right;">#</th><th>Player</th><th style="text-align: right;">E1</th><th style="text-align: right;">E2</th><th style="text-align: right;">E3</th><th style="text-align: right;">Total</th></tr></thead>
+          <tbody>
+            <tr style="background: #1f3328;"><td style="text-align: right;">1</td><td>Conor</td><td style="text-align: right; color: #9db3a4;">105</td><td style="text-align: right; color: #9db3a4;">0</td><td style="text-align: right; color: #9db3a4;">100</td><td style="text-align: right;"><b>205</b></td></tr>
+            <tr><td style="text-align: right;">2</td><td>Jordan</td><td style="text-align: right; color: #9db3a4;">100</td><td style="text-align: right; color: #9db3a4;">100</td><td style="text-align: right; color: #9db3a4;">0</td><td style="text-align: right;"><b>200</b></td></tr>
+            <tr><td style="text-align: right;">3</td><td>Sam</td><td style="text-align: right; color: #9db3a4;">5</td><td style="text-align: right; color: #9db3a4;">100</td><td style="text-align: right; color: #9db3a4;">5</td><td style="text-align: right;"><b>110</b></td></tr>
+            <tr><td style="text-align: right;">4</td><td>Alex</td><td style="text-align: right; color: #9db3a4;">0</td><td style="text-align: right; color: #9db3a4;">0</td><td style="text-align: right; color: #9db3a4;">0</td><td style="text-align: right;"><b>0</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: auto; padding: 8px 16px 24px; color: #9db3a4; font-size: 14px;">▸ How scoring works</div>
+</div>
+</x-dc>
+</body>
+</html>
